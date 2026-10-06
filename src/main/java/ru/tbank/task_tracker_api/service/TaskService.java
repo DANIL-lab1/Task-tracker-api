@@ -4,11 +4,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tbank.task_tracker_api.entity.Status;
 import ru.tbank.task_tracker_api.entity.Task;
-import ru.tbank.task_tracker_api.service.TaskRepository;
+import ru.tbank.task_tracker_api.repository.TaskRepository;
 import ru.tbank.task_tracker_api.exception.TaskNotFoundException;
 
 import java.util.List;
 import java.util.UUID;
+import ru.tbank.task_tracker_api.repository.TaskRepository;
 
 /**
  * Service layer for task management.
