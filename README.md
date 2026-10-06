@@ -4,10 +4,11 @@ REST API for task management built with Spring Boot.
 
 **Status:** 🚧 Work in Progress
 
-![Version](https://img.shields.io/badge/version-0.3-blue)
+![Version](https://img.shields.io/badge/version-0.4-blue)
 ![Java](https://img.shields.io/badge/Java-21-orange)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1-green)
-![Progress](https://img.shields.io/badge/progress-60%25-yellow)
+![Tests](https://img.shields.io/badge/tests-22%20passed-green)
+![Progress](https://img.shields.io/badge/progress-70%25-yellow)
 
 ## About
 
@@ -31,7 +32,8 @@ Built with Spring Boot, Spring Data JPA, and H2 database.
 - [x] Custom exceptions (`TaskNotFoundException`)
 - [x] Validation errors handling
 - [x] Swagger/OpenAPI documentation
-- [ ] Unit tests (`@SpringBootTest`, `MockMvc`)
+- [x] Unit tests (Mockito) — 11 tests
+- [x] Integration tests (MockMvc) — 10 tests
 - [ ] PostgreSQL (production database)
 - [ ] Docker
 - [ ] CI/CD
@@ -43,6 +45,9 @@ Built with Spring Boot, Spring Data JPA, and H2 database.
 - Spring Data JPA
 - Hibernate 7.4
 - H2 Database
+- SpringDoc OpenAPI (Swagger)
+- JUnit 5 + Mockito + MockMvc
+- Jackson 3
 - Gradle
 
 ## API Endpoints
@@ -89,6 +94,31 @@ You can:
 - Test API directly in the browser using "Try it out"
 - View all HTTP status codes for each endpoint
 
+## Testing
+
+```bash
+# Run all tests
+./gradlew test
+
+# Run with detailed output
+./gradlew clean test
+```
+
+### Test stats:
+
+| Test Class | Tests | Type |
+|------------|-------|------|
+| `TaskServiceTest` | 11 | Unit (Mockito) |
+| `TaskControllerTest` | 10 | Integration (MockMvc) |
+| `TaskTrackerApiApplicationTests` | 1 | Context load |
+| **Total** | **22** | **All passing** ✅ |
+
+### Test Coverage
+- Service layer: CRUD, validation, exceptions
+- Controller layer: All endpoints, status codes, error responses
+- Validation: `@NotBlank`, `@Valid`
+- Exception handling: 404, 400, 500
+
 ## How to run
 
 ```bash
@@ -99,14 +129,14 @@ cd task-tracker-api
 
 The API will be available at http://localhost:8080.
 
-# H2 Console
+## H2 Console
 
 - **URL:** `http://localhost:8080/h2-console`
 - JDBC URL: jdbc:h2:mem:testdb
 - User: sa
 - Password: (empty)
 
-# Example Request
+## Example Request
 
 ```bash
 curl -X POST http://localhost:8080/api/tasks \
@@ -119,7 +149,15 @@ curl -X POST http://localhost:8080/api/tasks \
   }'
 ```
 
-# Version History
+## Version History
+
+v0.4 — Tests ✅
+- Unit tests for TaskService (Mockito, 11 tests)
+- Integration tests for TaskController (MockMvc, 10 tests)
+- Migrated to Spring Boot 4 test annotations (@MockitoBean, @AutoConfigureMockMvc)
+- Migrated to Jackson 3 (tools.jackson.databind.ObjectMapper)
+- Configured testLogging for detailed output
+- All 22 tests passing
 
 v0.3 — Swagger Documentation ✅
 
@@ -147,16 +185,12 @@ v0.1 - Initial REST API ✅
 - H2 database integration
 
 v1.0 - Production Ready ⏳
-
-- Exception handling
-- Swagger documentation
-- Tests (unit + integration)
 - PostgreSQL
 - Docker
 - CI/CD
 
-# Author
+## Author
 DANIL-lab1
 
-# License
+## License
 MIT License
