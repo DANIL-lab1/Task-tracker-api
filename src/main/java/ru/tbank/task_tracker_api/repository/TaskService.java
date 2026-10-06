@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.tbank.task_tracker_api.entity.Status;
 import ru.tbank.task_tracker_api.entity.Task;
 import ru.tbank.task_tracker_api.repository.TaskRepository;
+import ru.tbank.task_tracker_api.exception.TaskNotFoundException;
 
 import java.util.List;
 import java.util.UUID;
@@ -49,7 +50,7 @@ public class TaskService {
     @Transactional(readOnly = true)
     public Task getTaskById(UUID id) {
         return repository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Task not found: " + id));
+            .orElseThrow(() -> new TaskNotFoundException(id));
     }
     
     /**
@@ -90,7 +91,7 @@ public class TaskService {
     @Transactional
     public void deleteTask(UUID id) {
         if (!repository.existsById(id)) {
-            throw new RuntimeException("Task not found: " + id);
+            throw new TaskNotFoundException(id);
         }
         repository.deleteById(id);
     }
