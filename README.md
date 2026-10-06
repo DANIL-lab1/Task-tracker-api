@@ -57,35 +57,6 @@ Built with Spring Boot, Spring Data JPA, and H2 database.
 | `GET` | `/api/tasks/filter?status=NEW` | Filter by status |
 | `GET` | `/api/tasks/search?keyword=Java` | Search by title |
 
-## How to run
-
-```bash
-git clone https://github.com/DANIL-lab1/task-tracker-api.git
-cd task-tracker-api
-./gradlew bootRun
-```
-
-# Version History
-
-v0.1 - Initial REST API ✅
-
-- Spring Boot project setup
-- Task entity with JPA
-- TaskRepository with query methods
-- TaskService with business logic
-- TaskController with REST endpoints
-- DTOs for request/response
-- H2 database integration
-
-v1.0 - Production Ready ⏳
-
-- Exception handling
-- Swagger documentation
-- Tests (unit + integration)
-- PostgreSQL
-- Docker
-- CI/CD
-
 ## API Errors
 
 | Status | Error | When |
@@ -105,6 +76,42 @@ v1.0 - Production Ready ⏳
   "path": "/api/tasks/550e8400-...",
   "validationErrors": null
 }
+
+## How to run
+
+```bash
+git clone https://github.com/DANIL-lab1/task-tracker-api.git
+cd task-tracker-api
+./gradlew bootRun
+```
+
+# Version History
+
+v1.0 - Production Ready ⏳
+
+- Exception handling
+- Swagger documentation
+- Tests (unit + integration)
+- PostgreSQL
+- Docker
+- CI/CD
+
+v0.2 — Exception Handling ✅
+
+- Global exception handling (@ControllerAdvice)
+- Custom TaskNotFoundException
+- Validation errors handling (@Valid)
+- Structured error responses (ErrorResponse)
+
+v0.1 - Initial REST API ✅
+
+- Spring Boot project setup
+- Task entity with JPA
+- TaskRepository with query methods
+- TaskService with business logic
+- TaskController with REST endpoints
+- DTOs for request/response
+- H2 database integration
 
 # Author
 DANIL-lab1
