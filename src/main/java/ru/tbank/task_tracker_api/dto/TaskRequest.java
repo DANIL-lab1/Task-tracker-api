@@ -1,5 +1,6 @@
 package ru.tbank.task_tracker_api.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import ru.tbank.task_tracker_api.entity.Priority;
 import ru.tbank.task_tracker_api.entity.Status;
@@ -12,23 +13,48 @@ import java.time.LocalDateTime;
  * @author DANIL-lab1
  * @version 1.0
  */
+@Schema(description = "Request to create or update a task")
 public class TaskRequest {
     
+    @Schema(
+        description = "Task title",
+        example = "Learn Spring Boot",
+        requiredMode = Schema.RequiredMode.REQUIRED
+    )
     @NotBlank(message = "Title cannot be empty")
     private String title;
     
+    @Schema(
+        description = "Task description",
+        example = "Build TaskTracker API with Spring Boot"
+    )
     private String description;
     
+    @Schema(
+        description = "Task status",
+        example = "NEW",
+        allowableValues = {"NEW", "IN_PROGRESS", "DONE"}
+    )
     private Status status;
     
+    @Schema(
+        description = "Task priority",
+        example = "HIGH",
+        allowableValues = {"LOW", "MEDIUM", "HIGH"}
+    )
     private Priority priority;
     
+    @Schema(
+        description = "Assignee name",
+        example = "DANIL-lab1"
+    )
     private String assigneeName;
     
+    @Schema(
+        description = "Task deadline",
+        example = "2026-12-31T23:59:59"
+    )
     private LocalDateTime deadline;
-    
-    public TaskRequest() {
-    }
     
     // Getters and Setters
     

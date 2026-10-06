@@ -1,10 +1,10 @@
-package ru.tbank.task_tracker_api.repository;
+package ru.tbank.task_tracker_api.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tbank.task_tracker_api.entity.Status;
 import ru.tbank.task_tracker_api.entity.Task;
-import ru.tbank.task_tracker_api.repository.TaskRepository;
+import ru.tbank.task_tracker_api.service.TaskRepository;
 import ru.tbank.task_tracker_api.exception.TaskNotFoundException;
 
 import java.util.List;

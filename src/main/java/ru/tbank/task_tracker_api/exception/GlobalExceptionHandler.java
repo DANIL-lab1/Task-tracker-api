@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import io.swagger.v3.oas.annotations.Hidden;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import ru.tbank.task_tracker_api.dto.ErrorResponse;
 
@@ -20,6 +21,7 @@ import java.util.Map;
  * @author DANIL-lab1
  * @version 1.0
  */
+@Hidden
 @RestControllerAdvice
 public class GlobalExceptionHandler {
     

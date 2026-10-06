@@ -1,5 +1,6 @@
 package ru.tbank.task_tracker_api.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import ru.tbank.task_tracker_api.entity.Priority;
 import ru.tbank.task_tracker_api.entity.Status;
 
@@ -14,20 +15,37 @@ import java.util.UUID;
  * @author DANIL-lab1
  * @version 1.0
  */
+@Schema(description = "Task response with full task data")
 public class TaskResponse {
     
+    @Schema(description = "Task UUID", example = "550e8400-e29b-41d4-a716-446655440000")
     private UUID id;
+    
+    @Schema(description = "Task title", example = "Learn Spring Boot")
     private String title;
+    
+    @Schema(description = "Task description", example = "Build TaskTracker API")
     private String description;
+    
+    @Schema(description = "Task status", example = "NEW")
     private Status status;
+    
+    @Schema(description = "Task priority", example = "HIGH")
     private Priority priority;
+    
+    @Schema(description = "Assignee name", example = "DANIL-lab1")
     private String assigneeName;
+    
+    @Schema(description = "Deadline", example = "2026-12-31T23:59:59")
     private LocalDateTime deadline;
+    
+    @Schema(description = "Creation timestamp", example = "2026-10-06T12:40:00")
     private LocalDateTime createdAt;
+    
+    @Schema(description = "Last update timestamp", example = "2026-10-06T12:40:00")
     private LocalDateTime updatedAt;
     
-    public TaskResponse() {
-    }
+    public TaskResponse() {}
     
     // Getters and Setters
     
