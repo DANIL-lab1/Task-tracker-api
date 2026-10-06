@@ -76,6 +76,7 @@ Built with Spring Boot, Spring Data JPA, and H2 database.
   "path": "/api/tasks/550e8400-...",
   "validationErrors": null
 }
+```
 
 ## How to run
 
