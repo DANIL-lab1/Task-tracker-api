@@ -4,10 +4,10 @@ REST API for task management built with Spring Boot.
 
 **Status:** 🚧 Work in Progress
 
-![Version](https://img.shields.io/badge/version-0.1-blue)
+![Version](https://img.shields.io/badge/version-0.3-blue)
 ![Java](https://img.shields.io/badge/Java-21-orange)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1-green)
-![Progress](https://img.shields.io/badge/progress-30%25-yellow)
+![Progress](https://img.shields.io/badge/progress-60%25-yellow)
 
 ## About
 
@@ -30,7 +30,7 @@ Built with Spring Boot, Spring Data JPA, and H2 database.
 - [x] Exception handling (`@ControllerAdvice`)
 - [x] Custom exceptions (`TaskNotFoundException`)
 - [x] Validation errors handling
-- [ ] Swagger/OpenAPI documentation
+- [x] Swagger/OpenAPI documentation
 - [ ] Unit tests (`@SpringBootTest`, `MockMvc`)
 - [ ] PostgreSQL (production database)
 - [ ] Docker
@@ -78,6 +78,17 @@ Built with Spring Boot, Spring Data JPA, and H2 database.
 }
 ```
 
+## Swagger UI
+
+Interactive API documentation is available at: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+
+You can:
+
+- Browse all endpoints grouped by tags
+- See request/response schemas with examples
+- Test API directly in the browser using "Try it out"
+- View all HTTP status codes for each endpoint
+
 ## How to run
 
 ```bash
@@ -86,16 +97,37 @@ cd task-tracker-api
 ./gradlew bootRun
 ```
 
+The API will be available at http://localhost:8080.
+
+# H2 Console
+
+- **URL:** `http://localhost:8080/h2-console`
+- JDBC URL: jdbc:h2:mem:testdb
+- User: sa
+- Password: (empty)
+
+# Example Request
+
+```bash
+curl -X POST http://localhost:8080/api/tasks \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Learn Spring Boot",
+    "description": "Build TaskTracker API",
+    "priority": "HIGH",
+    "assigneeName": "DANIL-lab1"
+  }'
+```
+
 # Version History
 
-v1.0 - Production Ready ⏳
+v0.3 — Swagger Documentation ✅
 
-- Exception handling
-- Swagger documentation
-- Tests (unit + integration)
-- PostgreSQL
-- Docker
-- CI/CD
+- Swagger/OpenAPI integration (springdoc-openapi)
+- Interactive API documentation at /swagger-ui.html
+- @Tag, @Operation, @ApiResponse annotations
+- @Schema for DTOs with examples
+- @Hidden for exception handler
 
 v0.2 — Exception Handling ✅
 
@@ -113,6 +145,15 @@ v0.1 - Initial REST API ✅
 - TaskController with REST endpoints
 - DTOs for request/response
 - H2 database integration
+
+v1.0 - Production Ready ⏳
+
+- Exception handling
+- Swagger documentation
+- Tests (unit + integration)
+- PostgreSQL
+- Docker
+- CI/CD
 
 # Author
 DANIL-lab1
