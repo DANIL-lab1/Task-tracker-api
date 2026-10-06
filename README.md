@@ -27,8 +27,9 @@ Built with Spring Boot, Spring Data JPA, and H2 database.
 - [x] Query methods (`findByStatus`, `findByTitleContaining`)
 
 ### Improvements 🚧
-- [ ] Exception handling (`@ControllerAdvice`)
-- [ ] Custom exceptions (`TaskNotFoundException`)
+- [x] Exception handling (`@ControllerAdvice`)
+- [x] Custom exceptions (`TaskNotFoundException`)
+- [x] Validation errors handling
 - [ ] Swagger/OpenAPI documentation
 - [ ] Unit tests (`@SpringBootTest`, `MockMvc`)
 - [ ] PostgreSQL (production database)
@@ -84,6 +85,26 @@ v1.0 - Production Ready ⏳
 - PostgreSQL
 - Docker
 - CI/CD
+
+## API Errors
+
+| Status | Error | When |
+|--------|-------|------|
+| `400` | Validation Failed | Invalid request body |
+| `404` | Not Found | Task not found by ID |
+| `500` | Internal Server Error | Unexpected error |
+
+### Error Response Format
+
+```json
+{
+  "timestamp": "2026-10-06T12:40:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "Task not found: 550e8400-...",
+  "path": "/api/tasks/550e8400-...",
+  "validationErrors": null
+}
 
 # Author
 DANIL-lab1
