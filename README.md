@@ -4,11 +4,11 @@ REST API for task management built with Spring Boot.
 
 **Status:** 🚧 Work in Progress
 
-![Version](https://img.shields.io/badge/version-0.4-blue)
+![Version](https://img.shields.io/badge/version-0.5-blue)
 ![Java](https://img.shields.io/badge/Java-21-orange)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1-green)
 ![Tests](https://img.shields.io/badge/tests-22%20passed-green)
-![Progress](https://img.shields.io/badge/progress-70%25-yellow)
+![Progress](https://img.shields.io/badge/progress-80%25-yellow)
 
 ## About
 
@@ -34,7 +34,7 @@ Built with Spring Boot, Spring Data JPA, and H2 database.
 - [x] Swagger/OpenAPI documentation
 - [x] Unit tests (Mockito) — 11 tests
 - [x] Integration tests (MockMvc) — 10 tests
-- [ ] PostgreSQL (production database)
+- [x] PostgreSQL (production database)
 - [ ] Docker
 - [ ] CI/CD
 
@@ -49,6 +49,8 @@ Built with Spring Boot, Spring Data JPA, and H2 database.
 - JUnit 5 + Mockito + MockMvc
 - Jackson 3
 - Gradle
+- PostgreSQL 16
+- H2 (for tests)
 
 ## API Endpoints
 
@@ -150,6 +152,15 @@ curl -X POST http://localhost:8080/api/tasks \
 ```
 
 ## Version History
+
+v0.5 — PostgreSQL ✅
+- Migrated from H2 to PostgreSQL
+- Added PostgreSQL driver
+- Configured `application.properties` for PostgreSQL
+- Added `application-test.properties` for H2 (tests)
+- Added `@ActiveProfiles("test")` for test isolation
+- Created `taskuser` in PostgreSQL
+- All 22 tests passing
 
 v0.4 — Tests ✅
 - Unit tests for TaskService (Mockito, 11 tests)
