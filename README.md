@@ -1,44 +1,33 @@
 # TaskTracker API
 
 [![CI](https://github.com/DANIL-lab1/task-tracker-api/actions/workflows/ci.yml/badge.svg)](https://github.com/DANIL-lab1/task-tracker-api/actions/workflows/ci.yml)
-
-REST API for task management built with Spring Boot.
-
-**Status:** 🚧 Work in Progress
-
-![Version](https://img.shields.io/badge/version-0.6-blue)
+![Version](https://img.shields.io/badge/version-1.0-blue)
 ![Java](https://img.shields.io/badge/Java-21-orange)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1-green)
 ![Tests](https://img.shields.io/badge/tests-22%20passed-green)
-![Progress](https://img.shields.io/badge/progress-90%25-yellow)
+
+REST API for task management built with Spring Boot.
 
 ## About
 
-A REST API for managing tasks with priorities, deadlines, and assignees.
-Built with Spring Boot, Spring Data JPA, and H2 database.
+A production-ready REST API for managing tasks with priorities, deadlines, and assignees.
+Built with Spring Boot 4, Spring Data JPA, PostgreSQL, and containerized with Docker.
 
-## Progress
+## Features
 
-### Backend ✅
-- [x] Spring Boot project setup
-- [x] `Task` entity with JPA
-- [x] `TaskRepository` (Spring Data JPA)
-- [x] `TaskService` (business logic)
-- [x] `TaskController` (REST API)
-- [x] DTOs: `TaskRequest`, `TaskResponse`
-- [x] H2 database integration
-- [x] Query methods (`findByStatus`, `findByTitleContaining`)
-
-### Improvements 🚧
-- [x] Exception handling (`@ControllerAdvice`)
-- [x] Custom exceptions (`TaskNotFoundException`)
-- [x] Validation errors handling
-- [x] Swagger/OpenAPI documentation
-- [x] Unit tests (Mockito) — 11 tests
-- [x] Integration tests (MockMvc) — 10 tests
-- [x] PostgreSQL (production database)
-- [X] Docker (Dockerfile + docker-compose)
-- [ ] CI/CD
+- **REST API** with 7 endpoints (CRUD + filter + search)
+- **Task priorities** (`LOW`, `MEDIUM`, `HIGH`)
+- **Statuses** (`NEW`, `IN_PROGRESS`, `DONE`)
+- **Deadlines** with `LocalDateTime`
+- **Assignees** (by name)
+- **Filter by status**
+- **Search by title**
+- **Exception handling** with structured error responses
+- **Validation** with `@Valid`, `@NotBlank`
+- **Swagger/OpenAPI** documentation
+- **PostgreSQL** database
+- **Docker** + Docker Compose
+- **CI/CD** with GitHub Actions
 
 ## Technologies
 
@@ -46,15 +35,14 @@ Built with Spring Boot, Spring Data JPA, and H2 database.
 - Spring Boot 4.1
 - Spring Data JPA
 - Hibernate 7.4
-- H2 Database
-- SpringDoc OpenAPI (Swagger)
-- JUnit 5 + Mockito + MockMvc
-- Jackson 3
-- Gradle
 - PostgreSQL 16
 - H2 (for tests)
-- Docker
-- Docker Compose
+- Jackson 3
+- JUnit 5 + Mockito + MockMvc
+- SpringDoc OpenAPI (Swagger)
+- Docker + Docker Compose
+- GitHub Actions
+- Gradle
 
 ## API Endpoints
 
@@ -160,6 +148,14 @@ docker compose down -v
 
 ## How to run
 
+### Option 1: Docker (recommended)
+
+```bash
+docker compose up --build
+```
+
+### Option 2: From source
+
 ```bash
 git clone https://github.com/DANIL-lab1/task-tracker-api.git
 cd task-tracker-api
@@ -188,7 +184,28 @@ curl -X POST http://localhost:8080/api/tasks \
   }'
 ```
 
+## Project Structure
+
+src/main/java/ru/tbank/task_tracker_api/
+├── controller/       — REST controllers
+├── dto/              — Data Transfer Objects
+├── entity/           — JPA entities
+├── exception/        — Exception handling
+├── repository/       — Spring Data repositories
+├── service/          — Business logic
+└── TaskTrackerApiApplication.java
+
 ## Version History
+
+v1.0 — Production Ready 🎉
+
+- All features implemented
+- PostgreSQL 16
+- Docker + Docker Compose
+- CI/CD with GitHub Actions
+- 22 tests passing
+- Swagger documentation
+- Full README + CHANGELOG
 
 v0.6 — Docker ✅
 - Multi-stage `Dockerfile`
@@ -240,10 +257,11 @@ v0.1 - Initial REST API ✅
 - DTOs for request/response
 - H2 database integration
 
-v1.0 - Production Ready ⏳
-- PostgreSQL
-- Docker
-- CI/CD
+## Roadmap
+
+- ✅ v1.0 — Production Ready
+- ⏳ Next: CI/CD improvements, monitoring
+- ⏳ Future: Microservices, Kafka
 
 ## Author
 DANIL-lab1
