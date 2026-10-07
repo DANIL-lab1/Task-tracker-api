@@ -186,6 +186,7 @@ curl -X POST http://localhost:8080/api/tasks \
 
 ## Project Structure
 
+```
 src/main/java/ru/tbank/task_tracker_api/
 ├── controller/       — REST controllers
 ├── dto/              — Data Transfer Objects
@@ -194,6 +195,18 @@ src/main/java/ru/tbank/task_tracker_api/
 ├── repository/       — Spring Data repositories
 ├── service/          — Business logic
 └── TaskTrackerApiApplication.java
+
+src/main/resources/
+├── application.properties          — main config (PostgreSQL)
+└── application-test.properties     — test config (H2)
+
+src/test/java/ru/tbank/task_tracker_api/
+├── controller/
+│   └── TaskControllerTest.java     — integration tests
+├── service/
+│   └── TaskServiceTest.java        — unit tests
+└── TaskTrackerApiApplicationTests.java
+```
 
 ## Version History
 
