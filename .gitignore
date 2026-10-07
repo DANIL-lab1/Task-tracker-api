@@ -40,11 +40,25 @@ logs/
 .DS_Store
 Thumbs.db
 
-# ===== H2 Database =====
+# ===== Databases =====
 *.db
 *.mv.db
 *.trace.db
 
-# ===== Environment =====
+# ===== Environment / Secrets =====
 .env
+.env.*
+*.env
 application-local.properties
+application-*.local.properties
+application-prod.properties
+application-dev.properties
+!application-test.properties
+
+# ===== Temporary =====
+*.tmp
+*.swp
+*.bak
+
+# ===== Docker =====
+*.pid
