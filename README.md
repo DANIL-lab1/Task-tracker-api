@@ -1,5 +1,7 @@
 # TaskTracker API
 
+[![CI](https://github.com/DANIL-lab1/task-tracker-api/actions/workflows/ci.yml/badge.svg)](https://github.com/DANIL-lab1/task-tracker-api/actions/workflows/ci.yml)
+
 REST API for task management built with Spring Boot.
 
 **Status:** 🚧 Work in Progress
