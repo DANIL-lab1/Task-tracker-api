@@ -4,11 +4,11 @@ REST API for task management built with Spring Boot.
 
 **Status:** 🚧 Work in Progress
 
-![Version](https://img.shields.io/badge/version-0.5-blue)
+![Version](https://img.shields.io/badge/version-0.6-blue)
 ![Java](https://img.shields.io/badge/Java-21-orange)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1-green)
 ![Tests](https://img.shields.io/badge/tests-22%20passed-green)
-![Progress](https://img.shields.io/badge/progress-80%25-yellow)
+![Progress](https://img.shields.io/badge/progress-90%25-yellow)
 
 ## About
 
@@ -35,7 +35,7 @@ Built with Spring Boot, Spring Data JPA, and H2 database.
 - [x] Unit tests (Mockito) — 11 tests
 - [x] Integration tests (MockMvc) — 10 tests
 - [x] PostgreSQL (production database)
-- [ ] Docker
+- [X] Docker (Dockerfile + docker-compose)
 - [ ] CI/CD
 
 ## Technologies
@@ -51,6 +51,8 @@ Built with Spring Boot, Spring Data JPA, and H2 database.
 - Gradle
 - PostgreSQL 16
 - H2 (for tests)
+- Docker
+- Docker Compose
 
 ## API Endpoints
 
@@ -96,6 +98,39 @@ You can:
 - Test API directly in the browser using "Try it out"
 - View all HTTP status codes for each endpoint
 
+## Docker
+
+Run the entire application stack (API + PostgreSQL) with Docker Compose:
+
+```bash
+docker compose up --build
+```
+
+This will: 
+
+- Build the Spring Boot application
+- Start PostgreSQL database
+- Start the API on http://localhost:8080
+
+### Service
+
+| Service | Port | Description | 
+| ------- | ---- | ----------- |
+| `app` | 8080 | Spring Boot API |
+| `postgres` | 5432 | PostgreSQL database | 
+
+### Stop
+
+```bash
+docker compose down
+```
+
+### Stop and remove volumes
+
+```bash
+docker compose down -v
+```
+
 ## Testing
 
 ```bash
@@ -106,7 +141,7 @@ You can:
 ./gradlew clean test
 ```
 
-### Test stats:
+### Test stats
 
 | Test Class | Tests | Type |
 |------------|-------|------|
@@ -131,7 +166,7 @@ cd task-tracker-api
 
 The API will be available at http://localhost:8080.
 
-## H2 Console
+### H2 Console
 
 - **URL:** `http://localhost:8080/h2-console`
 - JDBC URL: jdbc:h2:mem:testdb
@@ -152,6 +187,14 @@ curl -X POST http://localhost:8080/api/tasks \
 ```
 
 ## Version History
+
+v0.6 — Docker ✅
+- Multi-stage `Dockerfile`
+- `docker-compose.yml` (app + postgres)
+- `.dockerignore`
+- PostgreSQL runs in container
+- API runs in container
+- Full stack with one command: `docker compose up`
 
 v0.5 — PostgreSQL ✅
 - Migrated from H2 to PostgreSQL
